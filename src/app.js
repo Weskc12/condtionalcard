@@ -6,6 +6,40 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+  const suits = ["♠", "♥ ", "♦", "♣"];
+  const ranks = [
+    "A",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "J",
+    "Q",
+    "K"
+  ];
+
+  function getRandomElement(array) {
+    return array[Math.floor(Math.random() * array.length)];
+  }
+
+  function generateRandomCard() {
+    const card = document.querySelector(".card");
+    const topSuit = card.querySelector(".top .suit");
+    const bottomSuit = card.querySelector(".bottom .suit");
+    const rank = card.querySelector(".middle .rank");
+
+    const randomSuit = getRandomElement(suits);
+    const randomRank = getRandomElement(ranks);
+
+    topSuit.textContent = randomSuit;
+    bottomSuit.textContent = randomSuit;
+    rank.textContent = randomRank;
+  }
+
+  generateRandomCard();
 };
